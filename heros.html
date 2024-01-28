@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Our superheroes</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Faster+One"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header></header>
+
+    <section></section>
+
+    <script>
+      /* chargement de l'URL du fichier JSON que nous voulons récupérer dans une variable*/
+      var requestURL =
+        "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
+      var request = new XMLHttpRequest();
+      request.open("GET", requestURL);
+      request.responseType = "json";
+      request.send();
+      request.onload = function () {
+        var superHeros = request.response;
+        populateHeader(superHeros);
+        showHeros(superHeros);
+      };
+
+      var header = document.querySelector("header");
+      var section = document.querySelector("section");
+
+      function populateHeader(jsonObjet) {
+        var h1 = document.createElement("h1");
+        var p1 = document.createElement("p");
+        p1.textContent =
+          "Hometown: " + jsonObjet["homeTown"] + jsonObjet["formed"];
+        h1.textContent = jsonObjet["squadName"];
+
+        header.appendChild(p1);
+        header.appendChild(h1);
+      }
+
+      function showHeros(jsonObj) {
+        var heros = jsonObj["members"];
+        for (var i = 0; i < heros.length; i++) {
+          var article = document.createElement("article");
+          var h2 = document.createElement("h2");
+          var p2 = document.createElement("p");
+          var p3 = document.createElement("p");
+          var p4 = document.createElement("p");
+          var liste = document.createElement("ul");
+
+          h2.textContent = heros[i].name;
+          p2.textContent = "Secrete identity: " + heros[i].secretIdentity;
+          p3.textContent = "Age: " + heros[i].age;
+          p4.textContent = "Superpowers: ";
+
+          var superPowers = heros[i].powers;
+          for (var k = 0; k < superPowers.length; k++) {
+            var listeItem = document.createElement("li");
+            listeItem.textContent = superPowers[k];
+            liste.appendChild(listeItem);
+          }
+          article.appendChild(h2);
+          article.appendChild(p2);
+          article.appendChild(p3);
+          article.appendChild(p4);
+          article.appendChild(liste);
+          section.appendChild(article);
+        }
+      }
+    </script>
+  </body>
+</html>

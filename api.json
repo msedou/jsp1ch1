@@ -1,0 +1,37 @@
+{
+  "squadName": "Super hero sqad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super Tower",
+  "active": true,
+  "members": [
+    {
+      "name": "Molecule Man",
+      "age": 29,
+      "secreteIdentity": "Dan Jukes",
+      "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
+    },
+    {
+      "name": "Madame Uppercut",
+      "age": 39,
+      "secreteIdentity": "Jane Wilson",
+      "powers": [
+        "Million tonne push",
+        "Damage resistance",
+        "superhuman reflexes"
+      ]
+    },
+    {
+      "name": "Eternal Flame",
+      "age": 100000,
+      "secreteIdentity": "Unknown",
+      "powers": [
+        "Immortality",
+        "Heat Immunity",
+        "Inferno",
+        "Teleportation",
+        "Interdimensional travel"
+      ]
+    }
+  ]
+}
